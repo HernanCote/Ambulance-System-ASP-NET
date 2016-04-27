@@ -10,6 +10,7 @@ namespace AmbulanceSystem.Entities
     {
         void AddIps(IPS Ips);
         void AddAmbulance(Ambulance Ambulance);
+        int Commit();
         
     }
 }

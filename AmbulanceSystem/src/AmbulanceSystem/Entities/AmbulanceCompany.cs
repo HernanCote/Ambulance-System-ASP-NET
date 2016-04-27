@@ -6,38 +6,12 @@ using System.Threading.Tasks;
 
 namespace AmbulanceSystem.Entities
 {
-    public class AmbulanceCompany : IServicesAmbulance  
+    public class AmbulanceCompany
     {
+        public int Id { get; set; }
         public string Name { get; set; }
-
-        private List<Ambulance> AmbulanceList;
-        private List<Service> ServicesList;
-        private List<IPS> IpsList;
-
-
-        public void AddAmbulance(Ambulance Ambulance)
-        {
-            AmbulanceList.Add(Ambulance);
-        }
-
-        public void AddIps(IPS Ips)
-        {
-            IpsList.Add(Ips);
-        }
-
-        public void FinalizeAService()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RegisterAmbulancePosition()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void RegisterAService()
-        {
-            throw new NotImplementedException();
-        }
+        public ICollection<Ambulance> AmbulanceList { get; set; }
+        public ICollection<Service> ServicesList { get; set; }
+        public ICollection<IPS> IpsList { get; set; }
     }
 }
