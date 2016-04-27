@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace AmbulanceSystem.Entities
 {
-    public interface IServicesAmbulance
+    public enum AmbulanceState
     {
-        void AddIps(IPS Ips);
-        void AddAmbulance(Ambulance Ambulance);
-        
+        ASIGNED = 1,
+        NOT_ASIGNED = 2
     }
 }

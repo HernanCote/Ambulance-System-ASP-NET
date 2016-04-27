@@ -15,14 +15,14 @@ namespace AmbulanceSystem.Entities
         private List<IPS> IpsList;
 
 
-        public void AddAmbulance()
+        public void AddAmbulance(Ambulance Ambulance)
         {
-            throw new NotImplementedException();
+            AmbulanceList.Add(Ambulance);
         }
 
-        public void AddIps()
+        public void AddIps(IPS Ips)
         {
-            throw new NotImplementedException();
+            IpsList.Add(Ips);
         }
 
         public void FinalizeAService()
