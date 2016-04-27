@@ -10,6 +10,8 @@ using AmbulanceSystem.Entities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Data.Entity;
 using AmbulanceSystem.Services;
+using Microsoft.Extensions.PlatformAbstractions;
+using Microsoft.AspNet.Routing;
 
 namespace AmbulanceSystem
 {
@@ -38,14 +40,30 @@ namespace AmbulanceSystem
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app)
-        {
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApplicationEnvironment appEnvironment)
+        {            
+
             app.UseIISPlatformHandler();
 
-            app.Run(async (context) =>
+            if (env.IsDevelopment())
             {
-                await context.Response.WriteAsync("Hello World!");
-            });
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+
+            }
+            app.UseRuntimeInfoPage("/info");
+
+            app.UseFileServer();
+
+            app.UseMvc(ConfigureRoutes);
+        }
+
+        private void ConfigureRoutes(IRouteBuilder routeBuilder)
+        {
+            routeBuilder.MapRoute("Default",
+                    "{controller=Home}/{action=Index}/{id?}");
         }
 
         // Entry point for the application.

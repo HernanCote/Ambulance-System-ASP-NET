@@ -16,28 +16,16 @@ namespace AmbulanceSystem.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     AmbulanceCode = table.Column<long>(nullable: false),
+                    AmbulanceType = table.Column<int>(nullable: false),
                     Plate = table.Column<string>(nullable: true),
                     RoadPosition = table.Column<int>(nullable: false),
                     State = table.Column<int>(nullable: false),
                     StreetPosition = table.Column<int>(nullable: false),
-                    TimeOfPosition = table.Column<DateTime>(nullable: false),
-                    Type = table.Column<string>(nullable: true)
+                    TimeOfPosition = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Ambulance", x => x.Id);
-                });
-            migrationBuilder.CreateTable(
-                name: "AmbulanceCompany",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AmbulanceCompany", x => x.Id);
                 });
             migrationBuilder.CreateTable(
                 name: "Direction",
@@ -115,7 +103,6 @@ namespace AmbulanceSystem.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable("AmbulanceCompany");
             migrationBuilder.DropTable("Service");
             migrationBuilder.DropTable("Ambulance");
             migrationBuilder.DropTable("IPS");

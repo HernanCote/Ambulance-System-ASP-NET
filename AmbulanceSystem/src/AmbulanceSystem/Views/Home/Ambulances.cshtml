@@ -1,0 +1,27 @@
+﻿@model AmbulanceSystem.ViewModels.AmbulanceEditViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<h1>List of Ambulances</h1>
+
+<div>
+    @foreach (var ambulance in Model.Ambulances)
+    {
+    <ul>        
+        <li>@ambulance.Id</li>
+        <li>@ambulance.Plate</li>
+        <li>@ambulance.State</li>
+        <li>Street @ambulance.StreetPosition with @ambulance.RoadPosition</li>
+        <li>@ambulance.TimeOfPosition.Date.Day/@ambulance.TimeOfPosition.Month/@ambulance.TimeOfPosition.Year - @ambulance.TimeOfPosition.ToShortTimeString()</li>
+    </ul>
+    }
+</div>
+<div>
+    <a asp-action="CreateAmbulance">Insert new ambulance</a>
+</div>
+
+
+
+

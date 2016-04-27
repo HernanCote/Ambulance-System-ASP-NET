@@ -1,0 +1,40 @@
+﻿@using AmbulanceSystem.Enums
+@model AmbulanceSystem.ViewModels.AmbulanceCreateViewModel
+@{ 
+    ViewBag.Title = "Create a new Ambulance";
+}
+
+
+<form asp-action="CreateAmbulance" method="post">
+    <div>
+        <label asp-for="AmbulanceCode"></label>
+        <div>
+            <input asp-for="AmbulanceCode" />
+            <span asp-validation-for="AmbulanceCode"></span>
+        </div>
+    </div>
+    <div>
+        <label asp-for="Plate"></label>
+        <div>
+            <input asp-for="Plate" />
+            <span asp-validation-for="Plate"></span>
+        </div>
+    </div>
+    <div>
+        <label asp-for="AmbulanceType"></label>
+        <div>
+            <select asp-for="AmbulanceType" asp-items="@Html.GetEnumSelectList((typeof(AmbulanceType)))"></select>
+            <span asp-validation-for="AmbulanceType"></span>
+        </div>
+    </div>
+    <div>
+        <label asp-for="AmbulanceState"></label>
+        <div>
+            <select asp-for="AmbulanceState" asp-items="@Html.GetEnumSelectList((typeof(AmbulanceState)))"></select>
+            <span asp-validation-for="AmbulanceState"></span>
+        </div>
+    </div>
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+</form>

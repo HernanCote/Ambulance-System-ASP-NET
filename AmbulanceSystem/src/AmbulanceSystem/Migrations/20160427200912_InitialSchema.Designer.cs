@@ -8,8 +8,8 @@ using AmbulanceSystem.Entities;
 namespace AmbulanceSystem.Migrations
 {
     [DbContext(typeof(AmbulanceSystemContext))]
-    [Migration("20160427053739_SecondSchema")]
-    partial class SecondSchema
+    [Migration("20160427200912_InitialSchema")]
+    partial class InitialSchema
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace AmbulanceSystem.Migrations
 
                     b.Property<long>("AmbulanceCode");
 
-                    b.Property<int?>("AmbulanceCompanyId");
+                    b.Property<int>("AmbulanceType");
 
                     b.Property<string>("Plate");
 
@@ -35,18 +35,6 @@ namespace AmbulanceSystem.Migrations
                     b.Property<int>("StreetPosition");
 
                     b.Property<DateTime>("TimeOfPosition");
-
-                    b.Property<string>("Type");
-
-                    b.HasKey("Id");
-                });
-
-            modelBuilder.Entity("AmbulanceSystem.Entities.AmbulanceCompany", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
 
                     b.HasKey("Id");
                 });
@@ -72,8 +60,6 @@ namespace AmbulanceSystem.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("AmbulanceCompanyId");
-
                     b.Property<int?>("DirectionId");
 
                     b.Property<string>("Name");
@@ -87,8 +73,6 @@ namespace AmbulanceSystem.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<int?>("AmbulanceCompanyId");
 
                     b.Property<int?>("AmbulanceId");
 
@@ -109,19 +93,8 @@ namespace AmbulanceSystem.Migrations
                     b.HasKey("Id");
                 });
 
-            modelBuilder.Entity("AmbulanceSystem.Entities.Ambulance", b =>
-                {
-                    b.HasOne("AmbulanceSystem.Entities.AmbulanceCompany")
-                        .WithMany()
-                        .HasForeignKey("AmbulanceCompanyId");
-                });
-
             modelBuilder.Entity("AmbulanceSystem.Entities.IPS", b =>
                 {
-                    b.HasOne("AmbulanceSystem.Entities.AmbulanceCompany")
-                        .WithMany()
-                        .HasForeignKey("AmbulanceCompanyId");
-
                     b.HasOne("AmbulanceSystem.Entities.Direction")
                         .WithMany()
                         .HasForeignKey("DirectionId");
@@ -129,10 +102,6 @@ namespace AmbulanceSystem.Migrations
 
             modelBuilder.Entity("AmbulanceSystem.Entities.Service", b =>
                 {
-                    b.HasOne("AmbulanceSystem.Entities.AmbulanceCompany")
-                        .WithMany()
-                        .HasForeignKey("AmbulanceCompanyId");
-
                     b.HasOne("AmbulanceSystem.Entities.Ambulance")
                         .WithMany()
                         .HasForeignKey("AmbulanceId");

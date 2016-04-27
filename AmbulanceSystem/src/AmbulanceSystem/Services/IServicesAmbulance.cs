@@ -8,9 +8,15 @@ namespace AmbulanceSystem.Entities
 {
     public interface IServicesAmbulance
     {
-        void AddIps(IPS Ips);
-        void AddAmbulance(Ambulance Ambulance);
-        int Commit();
-        
+        ICollection<Ambulance> GetAllAmbulances();
+        ICollection<IPS> GetAllIps();
+        ICollection<Service> GetAllServices();
+        Ambulance GetAmbulanceById(int id);
+        IPS GetIpsById(int id);
+        Service GetServiceById(int id);
+        void AddIps(IPS ips);
+        void AddAmbulance(Ambulance ambulance);
+        void AddService(Service service);
+        int Commit();        
     }
 }

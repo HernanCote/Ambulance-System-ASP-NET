@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace AmbulanceSystem.Enums
 {
-    public enum AmbulanceState
+    public enum AmbulanceType
     {
-        ASIGNED = 1,
-        NOT_ASIGNED = 2
+        BASIC = 1,
+        MED = 2,
+        NO_MED = 3,
+        UCI = 4
     }
 }

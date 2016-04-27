@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AmbulanceSystem.Enums;
+using System;
 using System.Collections.Generic;
 
 namespace AmbulanceSystem.Entities
@@ -9,10 +10,10 @@ namespace AmbulanceSystem.Entities
         public ICollection<Service> ServicesList {get; set; }
         public long AmbulanceCode { get; set; }
         public string Plate { get; set; }
-        public DateTime TimeOfPosition { get; set; }
         public int StreetPosition { get; set; }
         public int RoadPosition { get; set; }
-        public string Type { get; set; }
+        public AmbulanceType AmbulanceType { get; set; }
+        public DateTime TimeOfPosition { get; set; }
         public AmbulanceState State { get; set; }
     }
 }
