@@ -8,6 +8,6 @@ namespace AmbulanceSystem.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
-        public Direction Direction { get; set; }
+        public int IdDirection { get; set; }
     }
 }
