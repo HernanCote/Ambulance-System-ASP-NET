@@ -1,0 +1,37 @@
+@model AmbulanceSystem.ViewModels.IpsViewModel
+@{
+    ViewBag.Title = "Ips";
+}
+
+
+<h1>List of IPS's in the system</h1>
+
+<div>
+    @if (!Model.Ips.Any())
+    {
+        <p>There are no ambulances in the system</p>
+    }
+    else
+    {
+        foreach (var ips in Model.Ips)
+        {
+            <ul>
+                <li>@ips.Id</li>
+                <li>@ips.Name</li>
+                <li>@ips.Type</li>
+                @if(ips.Direction.Type == DirectionType.AVENUE)
+                {
+                    <li>Avenue @ips.Direction.Avenue#@ips.Direction.Street-@ips.Direction.Number</li>
+                }
+                else
+                {
+                    <li>Street @ips.Direction.Street#@ips.Direction.Avenue-@ips.Direction.Number</li>
+                }
+            </ul>
+        }
+    }
+    
+</div>
+<div>
+    <a asp-action="CreateIps">Insert new ambulance</a>
+</div>

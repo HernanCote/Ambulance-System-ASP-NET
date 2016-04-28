@@ -1,16 +1,14 @@
 using AmbulanceSystem.Entities;
-using AmbulanceSystem.Enums;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AmbulanceSystem.ViewModels
 {
-    public class AmbulanceEditViewModel
+    public class IpsViewModel
     {
-        public ICollection<Ambulance> Ambulances {get; set;}
+        public ICollection<IPS> Ips { get; set; }
     }
 }

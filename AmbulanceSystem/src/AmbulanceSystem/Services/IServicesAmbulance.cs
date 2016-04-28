@@ -17,6 +17,7 @@ namespace AmbulanceSystem.Entities
         void AddIps(IPS ips);
         void AddAmbulance(Ambulance ambulance);
         void AddService(Service service);
+        void AddDirection(Direction direction);
         int Commit();        
     }
 }

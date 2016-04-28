@@ -6,5 +6,9 @@ using System.Threading.Tasks;
 
 namespace AmbulanceSystem.Enums
 {
-    public enum DirectionType { STREET = 1, ROAD = 2};
+    public enum DirectionType
+    {
+        STREET = 1,
+        AVENUE = 2
+    }
 }

@@ -1,0 +1,46 @@
+@model AmbulanceSystem.ViewModels.CreateIpsViewModel
+@{
+    ViewBag.Title = "Create IPS";
+}
+
+<h1>Create IPS</h1>
+
+<form asp-action="CreateIps" method="post">
+    <div>
+        <label asp-for="Name"></label>
+        <div>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+    </div>
+    <div>
+        <label asp-for="Type"></label>
+        <div>
+            <input asp-for="Type" />
+            <span asp-validation-for="Type"></span>
+        </div>
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Direction.Type)
+        @Html.DropDownListFor(m => m.Direction, Html.GetEnumSelectList((typeof(DirectionType))))
+        @Html.ValidationMessageFor(m => m.Direction.Type)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Direction.Avenue)
+        @Html.EditorFor(m => m.Direction.Avenue)
+        @Html.ValidationMessageFor(m => m.Direction.Avenue)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Direction.Street)
+        @Html.EditorFor(m => m.Direction.Street)
+        @Html.ValidationMessageFor(m => m.Direction.Street)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Direction.Number)
+        @Html.EditorFor(m => m.Direction.Number)
+        @Html.ValidationMessageFor(m => m.Direction.Number)
+    </div>
+    <div>
+        <input type="submit" value="Save" />
+    </div>
+</form>

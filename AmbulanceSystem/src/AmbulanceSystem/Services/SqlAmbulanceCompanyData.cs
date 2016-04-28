@@ -24,6 +24,11 @@ namespace AmbulanceSystem.Services
             _context.Ips.Add(Ips);
         }
 
+        public void AddDirection(Direction direction)
+        {
+            _context.Direction.Add(direction);
+        }
+
         public void AddService(Service service)
         {
             _context.Service.Add(service);
@@ -42,6 +47,11 @@ namespace AmbulanceSystem.Services
         public ICollection<Service> GetAllServices()
         {
             return _context.Service.ToList();
+        }
+
+        public ICollection<Direction> GetAllDirections()
+        {
+            return _context.Direction.ToList();
         }
         public Ambulance GetAmbulanceById(int id)
         {            

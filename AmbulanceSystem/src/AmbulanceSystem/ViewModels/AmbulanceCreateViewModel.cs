@@ -10,12 +10,13 @@ namespace AmbulanceSystem.ViewModels
 {
     public class AmbulanceCreateViewModel
     {
-        [Required, Display(Name ="Code")]
+        [Required, Display(Name ="Ambulance Code")]
         public long AmbulanceCode { get; set; }
         [Required, MaxLength(10)]
         public string Plate { get; set; }
-        [Required]
+        [Display(Name = "Ambulance Type")]
         public AmbulanceType AmbulanceType { get; set; }
+        [Display(Name = "Ambulance State")]
         public AmbulanceState AmbulanceState { get; set; }
     }
 }
