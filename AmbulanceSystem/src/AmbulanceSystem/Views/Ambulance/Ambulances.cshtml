@@ -1,26 +1,27 @@
 ﻿@model AmbulanceSystem.ViewModels.AmbulanceViewModel
 @{
-    ViewBag.Title = "Ambulances";        
+    ViewBag.Title = "Ambulances";
 }
-<section>
-    <h1>List of Ambulances</h1>
-    <div>
-        @foreach (var ambulance in Model.Ambulances)
-        {
-            <ul>
-                <li>@ambulance.Id</li>
-                <li>@ambulance.Plate</li>
-                <li>@ambulance.State</li>
-                <li>Street @ambulance.StreetPosition with @ambulance.RoadPosition</li>
-                <li>@ambulance.TimeOfPosition.Date.Day/@ambulance.TimeOfPosition.Month/@ambulance.TimeOfPosition.Year - @ambulance.TimeOfPosition.ToShortTimeString()</li>
-            </ul>
-        }
-    </div>
-    <div>
-        <a asp-action="CreateAmbulance" class="btn btn-primary">Create ambulance</a>
-    </div>
-</section>
 
-
-
+<h1>List of Ambulances in the System</h1>
+@if (Model.Ambulances.Any())
+{
+    @foreach (var ambulance in Model.Ambulances)
+    {
+        <ul>
+            <li>@ambulance.Id</li>
+            <li>@ambulance.Plate</li>
+            <li>@ambulance.State</li>
+            <li>Street @ambulance.StreetPosition with @ambulance.RoadPosition</li>
+            <li>@ambulance.TimeOfPosition.Date.Day/@ambulance.TimeOfPosition.Month/@ambulance.TimeOfPosition.Year - @ambulance.TimeOfPosition.ToShortTimeString()</li>
+        </ul>
+    }
+}
+else
+{
+    <p>There are no ambulances in the system</p>
+}
+<div>
+    <a asp-action="CreateAmbulance" class="btn btn-primary">Create ambulance</a>
+</div>
 

@@ -52,8 +52,6 @@ namespace AmbulanceSystem
 
             app.UseFileServer();
 
-            app.UseNodeModules(appEnvironment);
-
             app.UseMvc(ConfigureRoutes);
         }
 
