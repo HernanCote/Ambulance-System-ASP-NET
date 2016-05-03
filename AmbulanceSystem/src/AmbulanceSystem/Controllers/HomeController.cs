@@ -21,86 +21,8 @@ namespace AmbulanceSystem.Controllers
         public IActionResult Index()
         {
             return View();
-        }
+        }      
 
-        [HttpGet]
-        public IActionResult Ambulances()
-        {
-            var model = new AmbulanceViewModel();
-            model.Ambulances = _servicesAmbulance.GetAllAmbulances();
-            return View(model);
-        }
-
-        [HttpGet]
-        public IActionResult Ips()
-        {
-            var model =  new IpsViewModel();
-            model.Ips = _servicesAmbulance.GetAllIps().ToList();
-            return View(model);
-            
-        }
-
-        [HttpGet]
-        public IActionResult CreateAmbulance()
-        {
-            return View();
-        }
-
-        [HttpGet]
-        public IActionResult CreateIps()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult CreateAmbulance(AmbulanceCreateViewModel model)
-        {            
-            if (ModelState.IsValid)
-            {
-                Random rnd = new Random();
-                var ambulance = new Ambulance();
-                ambulance.AmbulanceCode = model.AmbulanceCode;
-                ambulance.Plate = model.Plate;
-                ambulance.ServicesList = new List<Service>();
-                ambulance.State = model.AmbulanceState;
-                ambulance.RoadPosition = rnd.Next(1,200);
-                ambulance.StreetPosition = rnd.Next(1,200);
-                ambulance.AmbulanceType = model.AmbulanceType;
-                ambulance.TimeOfPosition = DateTime.Now;
-
-                _servicesAmbulance.AddAmbulance(ambulance);
-                _servicesAmbulance.Commit();
-                return RedirectToAction("Ambulances");
-            }
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult CreateIps(CreateIpsViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var ips = new IPS();
-                var direction = new Direction();
-
-                ips.Name = model.Name;
-                ips.Type = model.Type;
-                ips.ServicesList = new List<Service>();
-
-                direction.Type = model.Direction.Type;
-                direction.Avenue = model.Direction.Avenue;
-                direction.Street = model.Direction.Street;
-                direction.Number = model.Direction.Number;
-
-                ips.Direction = direction;
-
-                _servicesAmbulance.AddIps(ips);
-                _servicesAmbulance.AddDirection(direction);
-
-                _servicesAmbulance.Commit();
-                return RedirectToAction("Ips");
-            }
-            return View();
-        }
+        
     }
 }

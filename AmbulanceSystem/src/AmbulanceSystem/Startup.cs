@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Builder;
+﻿using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
-using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
 using AmbulanceSystem.Entities;
 using Microsoft.Extensions.Configuration;
@@ -56,6 +51,8 @@ namespace AmbulanceSystem
             app.UseRuntimeInfoPage("/info");
 
             app.UseFileServer();
+
+            app.UseNodeModules(appEnvironment);
 
             app.UseMvc(ConfigureRoutes);
         }

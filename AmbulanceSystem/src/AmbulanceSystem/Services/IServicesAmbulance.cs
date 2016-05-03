@@ -11,9 +11,11 @@ namespace AmbulanceSystem.Entities
         ICollection<Ambulance> GetAllAmbulances();
         ICollection<IPS> GetAllIps();
         ICollection<Service> GetAllServices();
+        ICollection<Direction> GetAllDirections();
         Ambulance GetAmbulanceById(int id);
         IPS GetIpsById(int id);
         Service GetServiceById(int id);
+        Direction GetDirectionById(int id);
         void AddIps(IPS ips);
         void AddAmbulance(Ambulance ambulance);
         void AddService(Service service);

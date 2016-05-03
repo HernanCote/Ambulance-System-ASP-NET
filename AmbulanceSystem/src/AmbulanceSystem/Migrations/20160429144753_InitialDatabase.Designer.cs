@@ -8,8 +8,8 @@ using AmbulanceSystem.Entities;
 namespace AmbulanceSystem.Migrations
 {
     [DbContext(typeof(AmbulanceSystemContext))]
-    [Migration("20160427200912_InitialSchema")]
-    partial class InitialSchema
+    [Migration("20160429144753_InitialDatabase")]
+    partial class InitialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

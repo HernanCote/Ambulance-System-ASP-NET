@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AmbulanceSystem.Entities
 {
@@ -8,6 +9,7 @@ namespace AmbulanceSystem.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
-        public int IdDirection { get; set; }
+        public virtual Direction Direction { get; set; }
+        
     }
 }

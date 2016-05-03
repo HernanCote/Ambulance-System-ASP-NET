@@ -9,9 +9,9 @@ namespace AmbulanceSystem.Entities
 {
     public class AmbulanceSystemContext : DbContext
     {
-        public DbSet<Ambulance> Ambulance { get; set; }
-        public DbSet<IPS> Ips { get; set; }
-        public DbSet<Direction> Direction { get; set; }
-        public DbSet<Service> Service { get; set; }
+        public virtual DbSet<Ambulance> Ambulance { get; set; }
+        public virtual DbSet<IPS> Ips { get; set; }
+        public virtual DbSet<Direction> Direction { get; set; }
+        public virtual DbSet<Service> Service { get; set; }
     }
 }

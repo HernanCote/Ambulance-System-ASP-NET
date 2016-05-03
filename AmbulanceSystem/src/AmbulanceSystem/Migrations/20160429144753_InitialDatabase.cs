@@ -5,7 +5,7 @@ using Microsoft.Data.Entity.Metadata;
 
 namespace AmbulanceSystem.Migrations
 {
-    public partial class InitialSchema : Migration
+    public partial class InitialDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

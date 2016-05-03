@@ -1,4 +1,5 @@
 using AmbulanceSystem.Entities;
+using Microsoft.Data.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,7 @@ namespace AmbulanceSystem.Services
 
         public ICollection<IPS> GetAllIps()
         {
-            return _context.Ips.ToList();
+            return _context.Ips.Include(i => i.Direction).ToList();
         }
 
         public ICollection<Service> GetAllServices()
@@ -66,6 +67,11 @@ namespace AmbulanceSystem.Services
         public Service GetServiceById(int id)
         {
             return _context.Service.FirstOrDefault(s => s.Id == id);
+        }
+
+        public Direction GetDirectionById(int id)
+        {
+            return _context.Direction.FirstOrDefault(d => d.Id == id);
         }
         public int Commit()
         {
