@@ -1,28 +1,46 @@
 ﻿
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="~/lib/styles/site.css" />
 </head>
 <body>
     <div class="header-site">
-        <div class="logo"><a asp-controller="Home" asp-action="Index">Ambulance<span>System</span></a></div>
+        <div class="logo"><a class="a-site" asp-controller="Home" asp-action="Index">Ambulance<span>System</span></a></div>
     </div>
-    <div class="container-site">
-        <div class="sidebar-site">
-
-        </div>
-        <div class="content-site">
-            <div class="container">
-                @RenderBody()
+    <!--Sidebar-->
+    <div id="sidebar">
+        <ul class="nav">
+            <li class="active"><a asp-controller="Ambulance" asp-action="Ambulances">Ambulances</a></li>
+            <li><a asp-controller="Ips" asp-action="Ips">IPS</a></li>
+            <li><a>Services</a></li>
+        </ul>
+    </div>
+    <div id="wrapper">
+        <!--Page Content-->
+        <nav>
+            <div>
+                <ul class="nav navbar-left">
+                    <li>
+                        <button id="sidebarToggle" class="btn btn-primary btn-mio">
+                            <i class="fa fa-angle-left"></i>
+                        </button>
+                    </li>
+                </ul>
             </div>
-            <footer class="footer-site">
-                <div class="container">&copy;Hernán Cote - @DateTime.Now.Year</div>
-            </footer>
+        </nav>
+        <div id="main" class="container-fluid">
+            @RenderBody()
         </div>
+        <footer id="footer-site">
+            <div class="container-fluid">&copy;Hernán Cote - @DateTime.Now.Year</div>
+        </footer>
     </div>
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/lib/js/site.js"></script>    
 </body>
 </html>

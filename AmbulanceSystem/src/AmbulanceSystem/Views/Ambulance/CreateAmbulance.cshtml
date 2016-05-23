@@ -1,39 +1,44 @@
 ﻿@model AmbulanceSystem.ViewModels.AmbulanceCreateViewModel
-@{ 
+@{
     ViewBag.Title = "Create a new Ambulance";
 }
 
 
-<form asp-action="CreateAmbulance" method="post">
-    <div>
-        <label asp-for="AmbulanceCode"></label>
-        <div>
-            <input asp-for="AmbulanceCode" />
-            <span asp-validation-for="AmbulanceCode"></span>
-        </div>
+<div class="ambulance-list">
+    <div class="col-md-8 col-md-offset-2">
+        <h1>@ViewBag.Title</h1>
+        <form asp-action="CreateAmbulance" method="post">
+            <div class="form-group">
+                <label asp-for="AmbulanceCode"></label>
+                <div>
+                    <input asp-for="AmbulanceCode" class="form-control" />
+                    <span asp-validation-for="AmbulanceCode" class="text-muted"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Plate"></label>
+                <div>
+                    <input asp-for="Plate" class="form-control" />
+                    <span asp-validation-for="Plate" class="text-muted"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="AmbulanceType"></label>
+                <div>
+                    <select class="form-control" asp-for="AmbulanceType" asp-items="@Html.GetEnumSelectList((typeof(AmbulanceType)))"></select>
+                    <span asp-validation-for="AmbulanceType" class="text-muted"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="AmbulanceState"></label>
+                <div>
+                    <select class="form-control" asp-for="AmbulanceState" asp-items="@Html.GetEnumSelectList((typeof(AmbulanceState)))"></select>
+                    <span asp-validation-for="AmbulanceState" class="text-muted"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </form>
     </div>
-    <div>
-        <label asp-for="Plate"></label>
-        <div>
-            <input asp-for="Plate" />
-            <span asp-validation-for="Plate"></span>
-        </div>
-    </div>
-    <div>
-        <label asp-for="AmbulanceType"></label>
-        <div>
-            <select asp-for="AmbulanceType" asp-items="@Html.GetEnumSelectList((typeof(AmbulanceType)))"></select>
-            <span asp-validation-for="AmbulanceType"></span>
-        </div>
-    </div>
-    <div>
-        <label asp-for="AmbulanceState"></label>
-        <div>
-            <select asp-for="AmbulanceState" asp-items="@Html.GetEnumSelectList((typeof(AmbulanceState)))"></select>
-            <span asp-validation-for="AmbulanceState"></span>
-        </div>
-    </div>
-    <div>
-        <input type="submit" value="Save" />
-    </div>
-</form>
+</div>
