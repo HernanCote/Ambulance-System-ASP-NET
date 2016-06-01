@@ -18,6 +18,7 @@ namespace AmbulanceSystem.Entities
         Direction GetDirectionById(int id);
         void AddIps(IPS ips);
         void AddAmbulance(Ambulance ambulance);
+        int CountOfAmbulances();
         void AddService(Service service);
         void AddDirection(Direction direction);
         int Commit();        

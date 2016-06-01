@@ -20,6 +20,17 @@ namespace AmbulanceSystem.Services
             _context.Ambulance.Add(Ambulance);
         }
 
+        public int CountOfAmbulances()
+        {
+            var ambu = _context.Ambulance.ToList();
+            int count = 0;
+            foreach (Ambulance ambulancia in ambu)
+            {
+                count++;
+            }
+            return count;
+        }
+
         public void AddIps(IPS Ips)
         {
             _context.Ips.Add(Ips);

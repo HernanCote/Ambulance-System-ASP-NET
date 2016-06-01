@@ -6,10 +6,12 @@
     <link rel="stylesheet" type="text/css" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="~/lib/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="~/lib/styles/site.css" />
+    @RenderSection("link",false)
 </head>
 <body>
     <div class="header-site">
         <div class="logo"><a class="a-site" asp-controller="Home" asp-action="Index">Ambulance<span>System</span></a></div>
+        <div class="pull-right logo"><a class="a-site">Log In</a></div>
     </div>
     <!--Sidebar-->
     <div id="sidebar">
@@ -32,15 +34,16 @@
                 </ul>
             </div>
         </nav>
-        <div id="main" class="container-fluid">
+        <div id="main">
             @RenderBody()
         </div>
         <footer id="footer-site">
             <div class="container-fluid">&copy;Hernán Cote - @DateTime.Now.Year</div>
         </footer>
-    </div>
+    </div>    
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="~/lib/js/site.js"></script>    
+    @RenderSection("script", false)
 </body>
 </html>

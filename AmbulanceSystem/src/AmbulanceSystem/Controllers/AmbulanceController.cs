@@ -21,9 +21,10 @@ namespace AmbulanceSystem.Controllers
         [HttpGet]
         public IActionResult Ambulances()
         {
-            var model = new AmbulanceViewModel();
-            model.Ambulances = _servicesAmbulance.GetAllAmbulances();
-            return View(model);
+            var modelAmbulance = new AmbulanceViewModel();
+            modelAmbulance.Ambulances = _servicesAmbulance.GetAllAmbulances();            
+
+            return View(modelAmbulance);
         }
 
         [HttpGet]

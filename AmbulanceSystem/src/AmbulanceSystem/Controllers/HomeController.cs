@@ -20,7 +20,14 @@ namespace AmbulanceSystem.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var model = new IndexVideModel
+            {
+                Ambulances = _servicesAmbulance.GetAllAmbulances(),
+                Ips = _servicesAmbulance.GetAllIps(),
+                Services = _servicesAmbulance.GetAllServices()
+            };            
+
+            return View(model);
         }      
 
         

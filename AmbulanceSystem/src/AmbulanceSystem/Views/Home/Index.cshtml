@@ -1,7 +1,53 @@
-@{ 
+@model AmbulanceSystem.ViewModels.IndexVideModel
+@{
     ViewBag.Title = "Ambulances Company";
 }
 
-    
-        <h1>Ambulances Company</h1>
-        <a asp-controller="Ambulance" asp-action="Ambulances" class="btn btn-primary">Go to ambulances list</a>
+@section link {
+    <link rel="stylesheet" type="text/css" href="~/lib/styles/index.css" />
+}
+
+<h1>@ViewBag.Title</h1>
+
+    <div id="pricing" class="row">
+        <div class="col-md-4">
+            <div class="price_card alpha">
+                <div class="header">
+                    <span class="price">@Model.Ambulances.Count</span>
+                    <span class="name">Ambulances</span>
+                </div>
+                <ul class="features">
+                    <li>Click the button to see the full list</li>
+                </ul>
+                <a class="btn abtn" asp-controller="Ambulance" asp-action="Ambulances">Go to ambulances</a>
+                <span class="tip"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="price_card bravo">
+                <div class="header">
+                    <span class="price">@Model.Ips.Count</span>
+                    <span class="name">IPS</span>
+                </div>
+                <ul class="features">
+                    <li>Click the button to see the full list</li>
+                </ul>
+                <button class="button">Go to IPS</button>
+                <span class="tip"></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="price_card charlie">
+                <div class="header">
+                    <span class="price">@Model.Services.Count</span>
+                    <span class="name">Services</span>
+                </div>
+                <ul class="features">
+                    <li>Click the button to see the full list</li>
+                </ul>
+                <button class="button">Go to services</button>
+            </div>
+        </div>        
+    </div>
+
+

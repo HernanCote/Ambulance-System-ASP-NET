@@ -17,7 +17,8 @@ body {
 .logo {
     float: left;
     margin-top: 10px;
-    margin-left: 15px;
+    margin-left: 12px;
+    margin-right: 12px;
 }
 
 .logo a {
